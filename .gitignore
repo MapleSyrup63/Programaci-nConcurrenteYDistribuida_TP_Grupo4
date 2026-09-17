@@ -1,0 +1,25 @@
+# Datos pesados y resultados reproducibles
+data/raw/
+data/processed/
+*.zip
+*.parquet
+*.csv.gz
+*.duckdb
+*.db
+
+# Cuadernos y Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Configuración local
+.env
+.venv/
+venv/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
