@@ -1,0 +1,8 @@
+modo,workers,alloc_mb,total_alloc_delta_mb,sys_mb,num_gc_delta
+sequential,0,315.44,0.00,713.23,0
+concurrent,1,315.44,0.00,713.23,0
+concurrent,2,315.44,0.01,713.23,0
+concurrent,4,315.44,0.01,713.23,0
+concurrent,8,315.45,0.02,713.23,0
+concurrent,16,315.47,0.03,713.23,0
+concurrent,32,315.51,0.07,713.23,0
