@@ -6,6 +6,16 @@ data/processed/
 *.csv.gz
 *.duckdb
 *.db
+data/*.csv
+lcl_*.csv
+
+# Binarios y temporales de Go y Spin
+*.exe
+regresion/regresion
+pan
+pan.*
+*.trail
+_spin_nvr.tmp
 
 # Cuadernos y Python
 .ipynb_checkpoints/
