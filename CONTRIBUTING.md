@@ -1,13 +1,13 @@
 # Guía de contribución
 
-## Ramas
+## Ramas (Git Flow)
 
-- `main`: versiones entregables.
-- `develop`: integración de la etapa actual.
-- `feature/<descripcion>`: trabajo concreto de un integrante.
-- `release/<entrega>`: revisión final antes de pasar a `main`.
-
-Cada rama debe salir de una versión actualizada de `develop`:
+| Rama | Uso |
+| --- | --- |
+| `main` | Versiones entregadas (PC1, PC2, TP). Solo recibe merges desde `release/*`. |
+| `develop` | Integración de la etapa actual. Recibe los Pull Requests de las ramas `feature/*`. |
+| `feature/<descripcion>` | Trabajo concreto de un integrante. Sale de `develop` actualizado. |
+| `release/<entrega>` | Revisión final antes de pasar a `main` (por ejemplo, `release/pc2`). |
 
 ```powershell
 git switch develop
@@ -17,34 +17,33 @@ git switch -c feature/nombre-breve
 
 ## Commits
 
-Usar mensajes cortos que indiquen el tipo y el cambio realizado:
+Mensajes cortos que indiquen el tipo y el cambio:
 
 ```text
-docs: documentar selección del dataset
-data: añadir auditoría del preprocesamiento
-feat: implementar regresión lineal secuencial
-test: validar cálculo del error cuadrático medio
+feat: implementar regresión concurrente con Worker Pool
 fix: corregir lectura de fechas
+docs: actualizar README para la PC2
+refactor: organizar el código por etapas
+test: verificar ausencia de carreras con go run -race
+chore: ignorar binarios de Spin y Go
 ```
 
 Antes de confirmar:
 
 ```powershell
 git status
-git diff --check
 git diff --staged
 ```
 
-No se deben confirmar el ZIP original, CSV masivos, Parquet, credenciales, rutas personales ni archivos temporales.
+No se deben confirmar el ZIP original, los CSV masivos, archivos Parquet, binarios (`pan`, `*.exe`), credenciales ni rutas personales.
 
 ## Pull Requests
 
-1. Subir la rama con `git push -u origin feature/nombre-breve`.
-2. Abrir un Pull Request hacia `develop`.
-3. Describir qué cambió, cómo se verificó y qué archivo evidencia el aporte.
-4. Solicitar revisión de otro integrante.
-5. Corregir observaciones en la misma rama.
-6. Integrar conservando el historial. Para esta entrega se recomienda **Create a merge commit**, no `Squash and merge`, porque la rúbrica solicita evidencia de participación.
+1. Subir la rama: `git push -u origin feature/nombre-breve`.
+2. Abrir el Pull Request con base **`develop`**, no `main`.
+3. Describir qué cambió, cómo se verificó y qué evidencia lo respalda.
+4. Pedir la revisión de otro integrante, que debe aprobarlo antes del merge.
+5. Integrar con **Create a merge commit**, no con *Squash*, para conservar la autoría de cada commit.
+6. Al cerrar una entrega: crear `release/<entrega>` desde `develop`, abrir un PR hacia `main` y etiquetar la versión (`v1-pc1`, `v2-pc2`, `v3-tp`).
 
-La autoría debe corresponder al trabajo real. No se comparten cuentas, no se cambia el autor de un commit ajeno y no se crean commits vacíos solo para aumentar el conteo.
-
+La autoría debe corresponder al trabajo real: no se comparten cuentas, no se cambia el autor de commits ajenos y no se crean commits vacíos. Según el enunciado, el historial de `main` no debe editarse después de la fecha de entrega.
