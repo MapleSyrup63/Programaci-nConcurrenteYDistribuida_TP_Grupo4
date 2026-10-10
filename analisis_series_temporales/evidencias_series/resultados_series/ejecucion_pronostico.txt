@@ -1,0 +1,15 @@
+CPU lógicas: 2 | GOMAXPROCS: 2 | Go go1.24.7
+Filas: 3285438 (train 2559364 | validation 452163 | test 273911) | hogares: 5559 | 2011-12-01 a 2014-02-27 | carga: 13.173s
+
+=== PRONÓSTICO A UN DÍA SOBRE TEST (2014-01-01 a 2014-02-27) ===
+Ajuste con train+validation: 3011527 filas | Test: 273911 filas
+
+Predictor                      RMSE      MAE   sMAPE %       R2 Mejora RMSE vs lag_7
+ARX (regresión)              3.4678   2.0737     20.88   0.8773 +30.2 %
+Ingenuo: lag_1 (ayer)        4.0508   2.4039     21.89   0.8325 +18.5 %
+Ingenuo estacional: lag_7    4.9715   2.7464     25.13   0.7477 +0.0 %
+Media móvil 7 días           3.6957   2.1337     20.23   0.8606 +25.7 %
+
+Residuos [ajuste] n=3011527 | media -0.0000 | Durbin-Watson 2.043 | ACF(1) -0.022 | ACF(7) -0.031
+
+Residuos [test] n=273911 | media -0.0679 | Durbin-Watson 2.155 | ACF(1) -0.069 | ACF(7) 0.002
