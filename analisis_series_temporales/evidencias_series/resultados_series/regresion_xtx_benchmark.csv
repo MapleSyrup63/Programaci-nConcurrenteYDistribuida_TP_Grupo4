@@ -1,0 +1,4 @@
+modo,workers,media_recortada_ms,speedup
+sequential,0,337.8773,1.0000
+concurrent,1,345.6019,0.9776
+concurrent,2,173.5439,1.9469

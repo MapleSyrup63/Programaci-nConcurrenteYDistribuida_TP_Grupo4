@@ -1,0 +1,5 @@
+predictor,n,rmse,mae,smape_pct,r2,mejora_rmse_vs_naive_estacional_pct
+ARX (regresión),273911,3.4678,2.0737,20.8843,0.8773,30.2460
+Ingenuo: lag_1 (ayer),273911,4.0508,2.4039,21.8948,0.8325,18.5183
+Ingenuo estacional: lag_7,273911,4.9715,2.7464,25.1290,0.7477,0.0000
+Media móvil 7 días,273911,3.6957,2.1337,20.2316,0.8606,25.6621

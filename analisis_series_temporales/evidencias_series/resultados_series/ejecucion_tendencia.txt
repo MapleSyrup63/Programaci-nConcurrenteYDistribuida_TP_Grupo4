@@ -1,0 +1,21 @@
+CPU lógicas: 2 | GOMAXPROCS: 2 | Go go1.24.7
+Filas: 3285438 (train 2559364 | validation 452163 | test 273911) | hogares: 5559 | 2011-12-01 a 2014-02-27 | carga: 14.23s
+
+=== AGREGACIÓN DE LA SERIE DIARIA: 3285438 filas -> 820 días (20 repeticiones) ===
+secuencial  workers=0   media recortada 10% =    11.43 ms | speedup 1.00x
+concurrente workers=1   media recortada 10% =    12.37 ms | speedup 0.92x
+concurrente workers=2   media recortada 10% =     6.30 ms | speedup 1.82x
+concurrente workers=4   media recortada 10% =     5.42 ms | speedup 2.11x
+concurrente workers=8   media recortada 10% =     5.45 ms | speedup 2.10x
+concurrente workers=16  media recortada 10% =     5.60 ms | speedup 2.04x
+Conteos idénticos; diferencia relativa máxima de sumas: 4.7e-15 (orden de suma en punto flotante)
+Panel balanceado: 226 de 5559 hogares con dato en al menos 95 % de los días de 2012-2013
+Intra-hogar: 5325 hogares, 34681 pares hogar-mes | variación 2013 vs 2012: agregada -3.14 % | mediana -2.75 %
+
+[todos] media 2012 = 10.401 | media 2013 = 10.096 kWh/día (-2.93 %) | recta: -0.705 kWh/día por año (-6.88 %/año, R2 0.048)
+[todos] media móvil de 365 días: 10.344 -> 9.918 kWh/día (-4.12 %)
+[todos] índice semanal: lun 1.001 mar 0.987 mié 0.985 jue 0.981 vie 0.984 sáb 1.008 dom 1.055
+
+[panel] media 2012 = 10.879 | media 2013 = 10.849 kWh/día (-0.28 %) | recta: -0.443 kWh/día por año (-4.08 %/año, R2 0.018)
+[panel] media móvil de 365 días: 10.695 -> 10.667 kWh/día (-0.26 %)
+[panel] índice semanal: lun 1.003 mar 0.984 mié 0.975 jue 0.978 vie 0.991 sáb 1.003 dom 1.065

@@ -1,0 +1,4 @@
+tarea,tiempo_secuencial_ms,trabajo_por_fila,speedup_1_worker,speedup_2_workers
+Construcción de XᵀX y Xᵀy,337.8773,78 multiplicaciones,0.9776,1.9469
+Agregación de la serie diaria,11.431481250000001,1 suma y 1 conteo,0.9238428458430944,1.8153132319663348
+Walk-forward mensual (orden LPT),3157.5895875,20 ajustes completos,1.013759203551723,2.0233956291617057

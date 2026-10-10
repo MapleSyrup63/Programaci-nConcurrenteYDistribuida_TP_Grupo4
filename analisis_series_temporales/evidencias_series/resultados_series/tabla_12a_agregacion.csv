@@ -1,0 +1,7 @@
+modo,workers,media_recortada_ms,CV_pct,speedup,configuracion
+secuencial,0,11.431481250000001,9.999208963339337,1.0,Secuencial
+concurrente,1,12.3738375,3.713446733557419,0.9238428458430944,"Concurrente, 1 worker(s)"
+concurrente,2,6.29725,5.009543575826124,1.8153132319663348,"Concurrente, 2 worker(s)"
+concurrente,4,5.4216875,7.655048463151225,2.108472915489873,"Concurrente, 4 worker(s)"
+concurrente,8,5.454443749999999,4.606092686859617,2.095810640635904,"Concurrente, 8 worker(s)"
+concurrente,16,5.60473125,5.565269529523582,2.0396127378988957,"Concurrente, 16 worker(s)"
