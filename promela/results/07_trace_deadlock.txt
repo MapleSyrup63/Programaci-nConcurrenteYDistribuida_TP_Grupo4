@@ -1,0 +1,29 @@
+  1:	proc  0 (:init::1) mutex_verification_nounlock.pml:27 (state 1)	[expected_sum = ((125430+98650)+143210)]
+Starting Worker with pid 1
+  2:	proc  0 (:init::1) mutex_verification_nounlock.pml:29 (state 2)	[(run Worker(125430))]
+Starting Worker with pid 2
+  3:	proc  0 (:init::1) mutex_verification_nounlock.pml:30 (state 3)	[(run Worker(98650))]
+Starting Worker with pid 3
+  4:	proc  0 (:init::1) mutex_verification_nounlock.pml:31 (state 4)	[(run Worker(143210))]
+  5:	proc  3 (Worker:1) mutex_verification_nounlock.pml:12 (state 1)	[((mutex==0))]
+  5:	proc  3 (Worker:1) mutex_verification_nounlock.pml:12 (state 2)	[mutex = 1]
+  6:	proc  3 (Worker:1) mutex_verification_nounlock.pml:14 (state 4)	[in_cs = (in_cs+1)]
+  7:	proc  3 (Worker:1) mutex_verification_nounlock.pml:15 (state 5)	[assert((in_cs==1))]
+  8:	proc  3 (Worker:1) mutex_verification_nounlock.pml:17 (state 6)	[temp = global_sum_kwh]
+  9:	proc  3 (Worker:1) mutex_verification_nounlock.pml:18 (state 7)	[temp = (temp+partial_kwh)]
+ 10:	proc  3 (Worker:1) mutex_verification_nounlock.pml:19 (state 8)	[global_sum_kwh = temp]
+ 11:	proc  3 (Worker:1) mutex_verification_nounlock.pml:21 (state 9)	[in_cs = (in_cs-1)]
+ 12:	proc  3 (Worker:1) mutex_verification_nounlock.pml:22 (state 10)	[(1)]
+ 13:	proc  3 (Worker:1) mutex_verification_nounlock.pml:23 (state 11)	[done = (done+1)]
+ 14: proc 3 terminates
+spin: trail ends after 14 steps
+#processes: 3
+		global_sum_kwh = 143210
+		expected_sum = 367290
+		done = 1
+		mutex = 1
+		in_cs = 0
+ 14:	proc  2 (Worker:1) mutex_verification_nounlock.pml:12 (state 3)
+ 14:	proc  1 (Worker:1) mutex_verification_nounlock.pml:12 (state 3)
+ 14:	proc  0 (:init::1) mutex_verification_nounlock.pml:33 (state 5)
+4 processes created

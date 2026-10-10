@@ -1,3 +1,36 @@
+<<<<<<< HEAD
+#define NUM_WORKERS 3
+
+int  global_sum_kwh = 0;
+int  expected_sum   = 0;
+byte done           = 0;
+bool mutex          = false;   /* false = libre, referente a sync.Mutex */
+
+proctype Worker(int partial_kwh) {
+    int temp;
+
+    atomic { mutex == false -> mutex = true }   /* Lock() */
+
+    temp = global_sum_kwh;
+    temp = temp + partial_kwh;
+    global_sum_kwh = temp;
+
+    mutex = false;                               /* Unlock() */
+    done++;
+}
+
+init {
+    expected_sum = 125430 + 98650 + 143210;
+
+    run Worker(125430);
+    run Worker(98650);
+    run Worker(143210);
+
+    (done == NUM_WORKERS);
+    assert(global_sum_kwh == expected_sum);
+}
+
+=======
 /* race_condition_fixed.pml
  * Misma lógica, pero la sección crítica (leer-sumar-escribir)
  * está protegida por un mutex. Equivale a sync.Mutex en Go.
@@ -25,3 +58,4 @@ init {
     (finished == 3);
     assert(global_sum_kwh == expected_sum)
 }
+>>>>>>> 9a19ca4b772d18bf5c16a37ee96690617550d9e4
